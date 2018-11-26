@@ -16,6 +16,7 @@ composer require g4/mcache
 
 * [Memcached](http://us2.php.net/manual/en/book.memcached.php)
 * [Couchbase](http://www.couchbase.com/communities/php/getting-started)
+* [Redis](https://github.com/phpredis/phpredis#phpredis)
 
 ## Usage
 
@@ -51,6 +52,22 @@ $prefix = 'my_prefix';
     
 $mcache = \G4\Mcache\McacheFactory::createInstance($driverName, $options, $prefix);
 ```    
+
+### Redis instance
+
+``` php
+<?php
+
+$driverName = 'Redis';
+$options = array(
+    'servers' => array(
+        '127.0.0.1',
+    ),
+);
+$prefix = 'my_prefix';
+    
+$mcache = \G4\Mcache\McacheFactory::createInstance($driverName, $options, $prefix);
+```
 
 #### Available options
 
@@ -104,7 +121,7 @@ $mcache
 
 ### Run tests
 
-    $ make test
+    $ make unit-tests
 
 ## License
 
